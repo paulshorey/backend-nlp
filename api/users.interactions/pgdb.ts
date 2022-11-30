@@ -5,6 +5,9 @@ import import_pg from "pg"
 import json_parse from "@ps/fn/io/json/json_parse"
 import { makeSQLString } from "../lib/pgdb"
 import str_hash from "@ps/fn/io/str/str_hash"
+import dotenv from "dotenv"
+
+dotenv.config()
 const { Pool } = import_pg
 const pool = new Pool()
 

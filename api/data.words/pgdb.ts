@@ -10,15 +10,23 @@ import str_row from "./promise/str_row"
 import row_meta from "./function/row_meta"
 import key_sanitized from "./function/key_sanitized"
 import { makeSQLString } from "../lib/pgdb"
+import dotenv from "dotenv"
 
+dotenv.config()
 const { Pool } = import_pg
-const pool = new Pool()
+const pool = new Pool({
+  user: process.env.PG_USER,
+  host: process.env.PG_HOST,
+  database: process.env.PG_DATABASE,
+  password: process.env.PG_PASSWORD,
+  port: process.env.PG_PORT
+})
 
 /*
  * Debugging
  */
 let EXITONERROR = true // exit on error - for testing
-let DEBUG1 = false // allow short messages: api name and parameters
+let DEBUG1 = true // allow short messages: api name and parameters
 let DEBUG2 = false // allow lengthy messages: queryString
 if (DEBUG2 || DEBUG1) {
   process.on("uncaughtException", (err) => {

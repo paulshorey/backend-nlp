@@ -2,7 +2,9 @@
  * Dependencies
  */
 import { Pool } from "pg"
+import dotenv from "dotenv"
 
+dotenv.config()
 const pool = new Pool()
 // execute shell
 import import_child_process from "child_process"

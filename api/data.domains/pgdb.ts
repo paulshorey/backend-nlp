@@ -6,7 +6,9 @@ import json_parse from "@ps/fn/io/json/json_parse"
 import objects_merge from "@ps/fn/io/objects/objects_merge_keys"
 import sort_objects_by_property from "@ps/fn/io/sort_objects/sort_objects_by_property"
 import { performance } from "perf_hooks"
+import dotenv from "dotenv"
 
+dotenv.config()
 const { Pool } = import_pg
 const pool = new Pool()
 

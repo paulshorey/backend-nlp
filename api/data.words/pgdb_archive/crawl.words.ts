@@ -4,7 +4,9 @@
 import json_parse from "@ps/fn/io/json/json_parse"
 // DB
 import { Pool } from "pg"
+import dotenv from "dotenv"
 
+dotenv.config()
 const pool = new Pool()
 // execute shell
 import import_child_process from "child_process"

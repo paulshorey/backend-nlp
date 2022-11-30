@@ -16,5 +16,4 @@ cd $rootdir
 pm2 stop all < "/dev/null";
 pm2 delete all < "/dev/null";
 echo $(pwd);
-pm2 start ts-node -f -- --transpile-only --esm --experimental-specifier-resolution=node -r tsconfig-paths/register $rootdir/api --watch;
-pm2 monit;
+PG_HOST=143.244.214.169 ts-node --transpile-only --esm --experimental-specifier-resolution=node -r tsconfig-paths/register ./api --watch;

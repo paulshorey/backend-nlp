@@ -6,12 +6,12 @@
   "type": "module",
   "main": "api/index.ts",
   "scripts": {
+    "dev": "bash _bash/_start_dev.sh",
+    "start": "bash _bash/_start.sh",
+    "stop": "bash _bash/_stop.sh",
     "build": "tsc",
-    "watch": "tsc --watch",
-    "tsc": "bash _bash/_start_tsc.sh && echo 'starting Typescript server'",
-    "dev": "bash _bash/_start_tsc_dev.sh && echo 'developing using Typescript'",
-    "mac": "bash _bash/_start_mac.sh && echo 'this is for development on APPLE MAC OS ONLY'",
-    "deploy": "bash _bash/_deploy.sh && echo 'this is the startup process in production'"
+    "build:watch": "tsc --watch",
+    "deploy": "bash _bash/_deploy.sh"
   },
   "dependencies": {
     "@airbrake/node": "^1.0.7",

@@ -1,5 +1,5 @@
 import * as child_process from "child_process"
-import "dotenv/config"
+import dotenv from "dotenv"
 import "./global"
 import * as fs from "fs"
 import * as http from "http"
@@ -18,6 +18,7 @@ let __root = new URL("../", import.meta.url).pathname
 if (__root[__root.length - 1] === "/") {
   __root = __root.slice(0, -1)
 }
+dotenv.config()
 const expressApp = import_expressApp()
 const PORT = "1080"
 const DEBUG1 = false
