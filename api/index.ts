@@ -98,7 +98,7 @@ expressApp.get("/", async function (req, res) {
     "hello there"
   ]
   http_response(res, 200, {
-    v: "1",
+    v: "2",
     time: Date.now(),
     randomGreeting: greetings[Math.floor(Math.random() * 22)]
     // message: "Please see https://besta.domains/api for API documentation."
