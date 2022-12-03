@@ -4,14 +4,15 @@
   "description": "database, API, business logic, and algorithms for wordio.co and besta.domains",
   "private": true,
   "type": "module",
-  "main": "api/index.ts",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
   "scripts": {
-    "dev": "bash _bash/_start_dev.sh",
     "start": "bash _bash/_start.sh",
     "stop": "bash _bash/_stop.sh",
-    "build": "tsc",
-    "build:watch": "tsc --watch",
-    "deploy": "bash _bash/_deploy.sh"
+    "dev": "bash _bash/_start_dev.sh",
+    "deploy": "bash _bash/_deploy.sh",
+    "build": "tsc && echo 'use ts-node instead, production and development should run same code'",
+    "test": "ts-node-test src/**/**/*.test.ts"
   },
   "dependencies": {
     "@airbrake/node": "^1.0.7",
@@ -21,6 +22,7 @@
     "@types/cors": "^2.8.12",
     "axios": "^0.19.0",
     "body-parser": "^1.19.0",
+    "colorful-console-logger": "^1.1.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "dotenv-flow": "^3.2.0",
@@ -31,9 +33,9 @@
     "pg-pool": "^3.5.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.20",
-    "tsconfig-paths": "^4.1.0",
     "ts-node": "^10.9.1",
+    "ts-node-test": "^0.2.0",
+    "tsconfig-paths": "^4.1.0",
     "typescript": "^4.8.4"
   }
 }
