@@ -1,6 +1,6 @@
 import bing_spellcheck from "@ps/nlp/src/endpoints/3rdparty/promise/bing_spellcheck"
-// import google_autocomplete from "@ps/nlp/api/3rdparty/promise/google_autocomplete"
-// import bing_autosuggest from "@ps/nlp/api/3rdparty/promise/bing_autosuggest"
+// import google_autocomplete from "@ps/nlp/src/3rdparty/promise/google_autocomplete"
+// import bing_autosuggest from "@ps/nlp/src/3rdparty/promise/bing_autosuggest"
 import stopwords_dict from "@ps/nlp/data/words/stopwords"
 import sort_objects_by_property from "@ps/fn/io/sort_objects/sort_objects_by_property"
 
