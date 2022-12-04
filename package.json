@@ -1,17 +1,16 @@
 {
-  "name": "@ps/nlp",
+  "name": "backend-nlp",
   "version": "0.0.1",
-  "description": "database, API, business logic, and algorithms for wordio.co and besta.domains",
+  "description": "Database, API, business logic, and algorithms for wordio.co and besta.domains.",
   "private": true,
   "type": "module",
   "main": "src/index.ts",
   "module": "src/index.ts",
   "scripts": {
-    "start": "bash _bash/_start.sh",
-    "stop": "bash _bash/_stop.sh",
     "dev": "bash _bash/_start_dev.sh",
-    "deploy": "bash _bash/_deploy.sh",
-    "build": "tsc && echo 'use ts-node instead, production and development should run same code'",
+    "start": "echo 'run _bash/_start.sh manually. Read warning in bottom of readme.md first!'",
+    "stop": "bash _bash/_stop.sh",
+    "build": "tsc && echo 'Not necessary. Using ts-node instead, so production and development can run same code and configuration.'",
     "test": "ts-node-test src/**/**/*.test.ts"
   },
   "dependencies": {

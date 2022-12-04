@@ -57,5 +57,5 @@ mkdir $rootdir/tmp/localStorage-whois6
 #
 pm2 stop all < "/dev/null"
 pm2 delete all < "/dev/null"
-pm2 start ts-node -f -- --transpile-only --esm --experimental-specifier-resolution=node -r tsconfig-paths/register $rootdir/api;
+pm2 start ts-node-esm -f -- --transpile-only --esm --experimental-specifier-resolution=node -r tsconfig-paths/register $rootdir/src;
 pm2 monit;
