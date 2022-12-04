@@ -9,7 +9,6 @@ eval "$(ssh-agent -s)";
 ssh-add ~/.ssh/2022;
 ssh-add ~/.ssh/newssh;
 
-## Spiral:
 function push_live() {
   curl -X POST -d {} "https://webhooks.amplify.us-east-2.amazonaws.com/prod/webhooks?id=a588ef23-bac9-41c2-9017-c95ea9fc2f58&token=vF1Bf0pZlS6yZ7eYfspaIH191pjokvgnIbFBwXVlZB0&operation=startbuild" -H "Content-Type:application/json"
 }
