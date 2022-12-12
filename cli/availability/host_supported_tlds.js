@@ -7,9 +7,9 @@
 import "dotenv/config" // contains secret keys ~ never push to GIT!
 import "common/global.js" // contains secret keys ~ never push to GIT!
 import all_tlds from "@ps/nlp/data/domains/all"
-import domainr_all from "@ps/nlp/src/domains/availability/promise_async/domainr"
-import host_many from "@ps/nlp/src/domains/availability/promise_many/cli_host"
-import whois_many from "@ps/nlp/src/domains/availability/promise_many/cli_whois"
+import domainr_all from "@ps/nlp/api/domains/availability/promise_async/domainr"
+import host_many from "@ps/nlp/api/domains/availability/promise_many/cli_host"
+import whois_many from "@ps/nlp/api/domains/availability/promise_many/cli_whois"
 import check from "./test_words/100-4-14"
 
 let label = function (code) {
