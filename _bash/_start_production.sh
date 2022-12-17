@@ -1,5 +1,9 @@
 #!/bin/bash
-#/etc/init.d/logdna-agent start
+##/etc/init.d/logdna-agent start
+cwd=$( cd "$(dirname "$0")" ; pwd -P )
+rootdir=$cwd/../
+monodir=$rootdir/../../
+cd $monodir
 
 # 
 # This script is run by /etc/crontab
@@ -17,8 +21,15 @@ branch=$(git symbolic-ref --short HEAD);
 git reset --hard HEAD # clear local changes
 git reset --hard origin/$branch # reset to remote
 git pull
+git submodule update
 # log
 ystatus
+
+#
+# Install all monorepo dependencies
+#
+yarn
+cd $rootdir
 
 #
 # Map the port numbers
@@ -27,17 +38,6 @@ iptables -A PREROUTING -t nat -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 10
 ufw allow 80/tcp
 iptables -A PREROUTING -t nat -i eth0 -p tcp --dport 443 -j REDIRECT --to-port 1443
 ufw allow 443/tcp
-
-#
-# Install all monorepo dependencies
-#
-cwd=$( cd "$(dirname "$0")" ; pwd -P )
-rootdir=$cwd/../
-monodir=$rootdir/../../
-cd $monodir
-git 
-yarn
-cd $rootdir
 
 #
 # Reset cache files
