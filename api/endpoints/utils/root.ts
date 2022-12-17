@@ -4,8 +4,7 @@ export default [
     path: "/",
     response: () => {
       return {
-        v: "3",
-        time: Date.now(),
+        documentation: "https://documenter.getpostman.com/view/23360867/2s8YzXtewC",
         greetings: [
           "hi",
           "howdy",
@@ -14,7 +13,6 @@ export default [
           "salam",
           "aloha",
           "hola",
-          "goodbye",
           "bonjour",
           "ciao",
           "wassup",

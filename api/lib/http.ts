@@ -5,32 +5,43 @@ const DEBUG1 = false
 
 export const endpointHandler = function ({ expressApp, method, path, response, auth }) {
   expressApp[method](path, async function (req, res) {
+    let timeStart = Date.now()
     global.res = res
-    if (global.DEBUG_PATHS || DEBUG1) global.cconsole.info(`${method.toUpperCase()} /${path}`, req.query, req.body)
-    try {
-      // authenticate
-      let authError = await authIndex({ req, auth })
-      if (authError) {
-        const err = `Authentication error: ${authError}`
-        errorHandler({ err, req, res, method, path })
-      }
-      // fetch data
-      const data = await response({ req, res })
-      // return response
-      http_response(res, 200, data)
-    } catch (err) {
+    if (global.DEBUG_PATHS || DEBUG1) global.cconsole.info(`${method.toUpperCase()} ${path}`, req.query, req.body)
+    // authenticate
+    let authError = await authIndex({ req, auth })
+    if (authError) {
+      const err = `Authentication error: ${authError}`
       errorHandler({ err, req, res, method, path })
+      throw err
+    }
+    // fetch data
+    const data = await response({ req, res })
+    // if data is an error, throw it
+    if (data instanceof Error) {
+      http_response(res, 500, data)
+      throw data
+    } else {
+      let timeEnd = Date.now()
+      let meta = {
+        responseTime: timeEnd - timeStart
+      }
+      // return response
+      http_response(res, 200, data, meta)
     }
   })
 }
 
 export const errorHandler = function ({ err, req, res, method, path }) {
-  err.request = `${method} ${path}`
+  err.request = `${method.toUpperCase()} ${path}`
   err.user_id = req.headers["x-real-ip"] || req.headers["x-forwarded-for"] || req.ip || req.connection.remoteAddress
-  http_response(res, 500, err.stack ? err.stack.split("\n") : err.message || err)
+  let arr = err.stack ? err.stack.split("\n") : [err.message]
+  http_response(res, 500, arr[0], { method, path })
+  // global.cconsole.error(`request(${err.request})`, `user(${err.user_id})`, `err(${arr[0]} / ${arr[1]})`)
+  throw `request(${err.request}) user(${err.user_id}) err(${arr[0]} / ${arr[1]})`
 }
 
-export const http_response = function (response, status_code: number, data: any, extras?: any) {
+export const http_response = function (response, status_code: number, data: any, meta?: any) {
   // always respond with JSON
   response.setHeader("Content-Type", "application/json")
   response.writeHead(Number(status_code) || 200)
@@ -41,7 +52,7 @@ export const http_response = function (response, status_code: number, data: any,
       host: global["hostname"],
       status: "success",
       code: 200,
-      ...extras,
+      ...meta,
       data: data
     }
   } else {
@@ -58,7 +69,7 @@ export const http_response = function (response, status_code: number, data: any,
     }
     // error
     if (output.status === "error") {
-      console.error(data)
+      global.cconsole.error(data)
     }
   }
   response.write(JSON.stringify(output, null, "\t"))

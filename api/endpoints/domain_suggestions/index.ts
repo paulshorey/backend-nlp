@@ -84,6 +84,7 @@ export default [
         query.tlds_ignore || [],
         chunks.bing_alts || []
       )
+      global.cconsole.log("results", results)
       /*
        * RESPONSE
        */
@@ -98,26 +99,26 @@ export default [
       response.domains = response.domains_lists
       delete response.domains_lists
       //
-      if (!req.host_is_dev && !req.headers["experimental"]) {
-        // Production
-        delete response.tlds_extra
-        delete response.phrases
-        delete response.phrase_lists
-        delete response.word_hacks
-        delete response.com_hacks
-        delete response.phrase_hacks
-        delete response.is_name
-        delete response.is_tech
-        delete response.is_brand
-        delete response.is_about_nou
-        delete response.is_about_ver
-      } else {
-        // Development
-        // Simplify phrases
-        if (response.phrases) {
-          response.phrases = response.phrases.map((obj) => obj.string)
-        }
-      }
+      // if (!global.host_is_dev && !req.headers["experimental"]) {
+      //   // Production
+      //   // delete response.tlds_extra
+      //   // delete response.phrases
+      //   // delete response.phrase_lists
+      //   // delete response.word_hacks
+      //   // delete response.com_hacks
+      //   // delete response.phrase_hacks
+      //   // delete response.is_name
+      //   // delete response.is_tech
+      //   // delete response.is_brand
+      //   // delete response.is_about_nou
+      //   // delete response.is_about_ver
+      // } else {
+      //   // Development
+      //   // Simplify phrases
+      //   if (response.phrases) {
+      //     response.phrases = response.phrases.map((obj) => obj.string)
+      //   }
+      // }
       /*
        * RETURN
        */

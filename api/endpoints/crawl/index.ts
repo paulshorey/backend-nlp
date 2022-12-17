@@ -9,7 +9,7 @@ import { http_response } from "@ps/nlp/api/lib/http"
 const fy: any = []
 fy.push({
   api: "/v1/crawl/test",
-  url: "https://api.apify.com/v2/acts/techy.tools~example-html/run-sync?token=Byc43cN3uZv2Xyxo9q6GPSvjD",
+  url: "https://api.scrapfly.io/scrape?key=scp-live-98129e9363444f748eea449b7facc6c8&url=https%3A%2F%2Fexample.com&tags=player%2Cproject%3Adefault&country=us",
   reqData: () => ({})
 })
 fy.push({
@@ -30,13 +30,8 @@ export default fy.map((f) => ({
   path: f.api,
   method: "get",
   response: async function ({ req, res }) {
-    axios
-      .post(f.url, f.reqData(req), { timeout: 22000 })
-      .then((data) => {
-        http_response(res, 200, (data && data.data) || {})
-      })
-      .catch((err) => {
-        http_response(res, 500, err.stack ? err.stack.split("\n") : err.message)
-      })
+    return axios.post(f.url, f.reqData(req), { timeout: 22000 }).then((data) => {
+      return (data && data.data) || {}
+    })
   }
 }))

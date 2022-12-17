@@ -5,7 +5,7 @@ import names from "@ps/nlp/data/words/names"
 import techterms from "@ps/nlp/data/words/tech"
 import stopwords from "@ps/nlp/data/words/stopwords"
 import fw from "@ps/nlp/data/words/fw/fw"
-// import row_model from "@ps/nlp/api/endpionts/data.words/function/row_model"
+// import row_model from "@ps/nlp/api/endpoints/data.words/function/row_model"
 
 /**
  * Adds row.str. Fixes row.acronym, row.proper, row.key

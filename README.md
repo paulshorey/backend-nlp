@@ -23,14 +23,22 @@ However, it still won't work because this codebase relies on a database with spe
 
 ### Start development server
 
-run `yarn dev` or `bash _bash/_start_dev.sh`
+Run `yarn dev` or `bash _bash/_start_dev.sh`. This will simply start the node server. It will not affect the filesystem or anything else.
 
 ### Start production
 
-Reset codebase to remote and start/restart server.
+`_bash/_start_production.sh` is meant to be run on the remote server. It will pull the latest code from github, install dependencies, and restart the Node server.
 
-This is NOT meant to deploy from your local machine to the remote server. Instead, this is meant to be run on the remote server. Run `bash _bash/_start.sh` on the server. This will pull the latest code from github, install dependencies, and restart the Node process.
+Be careful if testing it on the development computer. **⚠️ `_bash/_start_production.sh` will GIT force update the entire codebase to remote origin/HEAD, losing all local changes. ⚠️** Then the script will start or restart the PM2 Node manager. The script is called by `/etc/crontab` on server reboot.
 
-**⚠️ WARNING: `_bash/_start.sh` is destructive. ⚠️** It will force update the entire codebase to remote origin/HEAD, losing any local changes. Then will start or restart the server. `_bash/_start_dev.sh` is the safe alternative.
+Essentially this setup acts as a docker container - with the added benefits of having a database on the same machine, plus filesystem access and much faster deploy times. But yes, this does not have the containerization benefits of scaling to a distributed cloud. So a dev-ops refactor is in order if this service becomes popular. However, the Microsoft spellcheck API that this service relies on is not globally distributed either.
 
-Essentially this acts as a docker container. But with a consistent local database and filesystem attached, and much faster deploy times.
+## Todo
+
+Leverage the `dotenv-expand` extension to use ENV variable expansion inside your .env files.
+
+```
+IP=127.0.0.1
+PORT=1234
+APP_URL=http://${IP}:${PORT}
+```

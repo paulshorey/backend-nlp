@@ -8,13 +8,16 @@
   "module": "api/index.ts",
   "scripts": {
     "dev": "bash _bash/_start_dev.sh",
-    "start": "echo 'Run _bash/_start.sh manually. Read bottom of readme.md first.'",
+    "pm2": "bash _bash/_start_dev_pm2.sh",
+    "start": "echo 'Run _bash/_start_remote.sh. Read bottom of README.md first.'",
     "stop": "bash _bash/_stop.sh",
-    "build": "tsc && echo 'Transpiling this project with tsc is not necessary. Instead use ts-node to serve ./api, so production and development can use the same code, resulting in fewer configuration issues.'",
-    "test": "ts-node-test api/**/**/*.test.ts"
+    "build": "tsc",
+    "test:next": "ts-node-test api/**/**/*.test.ts",
+    "test": "ava"
   },
   "dependencies": {
     "@airbrake/node": "^1.0.7",
+    "@logdna/logger": "^2.6.6",
     "@ps/cconsole": "*",
     "@ps/fn": "*",
     "@supercharge/request-ip": "^1.1.2",
@@ -23,6 +26,7 @@
     "body-parser": "^1.19.0",
     "colorful-console-logger": "^1.1.0",
     "cors": "^2.8.5",
+    "custom-env": "^2.0.1",
     "dotenv": "^16.0.3",
     "dotenv-flow": "^3.2.0",
     "express": "^4.18.2",
@@ -33,7 +37,6 @@
   },
   "devDependencies": {
     "ts-node": "^10.9.1",
-    "ts-node-test": "^0.2.0",
     "tsconfig-paths": "^4.1.1",
     "typescript": "^4.8.4"
   }

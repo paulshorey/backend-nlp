@@ -1,5 +1,5 @@
-import str_row from "@ps/nlp/api/endpionts/data.words/promise/str_row"
-import { data_word_get_parsed } from "@ps/nlp/api/endpionts/data.words/pgdb"
+import str_row from "@ps/nlp/api/endpoints/data.words/promise/str_row"
+import { data_word_get_parsed } from "@ps/nlp/api/endpoints/data.words/pgdb"
 import aggregate_req_body_query from "@ps/fn/io/req/aggregate_req_body_query_params"
 
 let DEBUG1 = false
@@ -12,7 +12,7 @@ export default [
     response: async function ({ req }) {
       let query = aggregate_req_body_query(req)
       const row = await str_row(query.str)
-      if (!row) throw new Error(`!row key="${query.str}"`)
+      if (!row) throw `!row key="${query.str}"`
       fix_row(row)
       return row
     }

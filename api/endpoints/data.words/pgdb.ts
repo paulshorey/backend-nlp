@@ -10,9 +10,11 @@ import str_row from "./promise/str_row"
 import row_meta from "./function/row_meta"
 import key_sanitized from "./function/key_sanitized"
 import { makeSQLString } from "@ps/nlp/api/lib/pgdb"
-import dotenv from "dotenv"
+import cconsole from "@ps/cconsole"
+import customEnv from "custom-env"
 
-dotenv.config()
+customEnv.env("local")
+cconsole.warn("process.env.PG_HOST", process.env.PG_HOST)
 const { Pool } = import_pg
 const pool = new Pool({
   user: process.env.PG_USER,

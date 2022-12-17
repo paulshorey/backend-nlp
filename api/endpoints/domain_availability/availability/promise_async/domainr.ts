@@ -1,4 +1,4 @@
-import domainr_many from "@ps/nlp/api/endpionts/domain_availability/availability/promise_many/domainr"
+import domainr_many from "@ps/nlp/api/endpoints/domain_availability/availability/promise_many/domainr"
 // import { sleep } from "@ps/fn/io/promises"
 
 // import import_localstorage from "node-localstorage"

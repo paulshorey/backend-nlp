@@ -1,12 +1,15 @@
 #!/bin/bash
 #/etc/init.d/logdna-agent start
 
-#
-# Setup shell
+# 
+# This script is run by /etc/crontab
 #
 eval "$(ssh-agent -s)"
-ssh-add /root/.ssh/2022 # using /root instead of ~ because it's run by /etc/crontab
-# reset git
+ssh-add /root/.ssh/2022 # fixMe: using /root instead of ~ because it's run by /etc/crontab
+
+# 
+# Reset codebase
+#
 echo "resetting to HEAD"
 git fetch --all
 git add .

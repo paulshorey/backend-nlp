@@ -1,5 +1,5 @@
 import tlds_location_specific from "@ps/nlp/data/domains/location_specific"
-import tlds_from_chunks from "@ps/nlp/api/endpionts/domain_suggestions/suggestions/this.tlds/function/tlds_from_chunks"
+import tlds_from_chunks from "@ps/nlp/api/endpoints/domain_suggestions/suggestions/this.tlds/function/tlds_from_chunks"
 // import { arr_subtract, arrays_mix } from "@ps/fn/io/arrays"
 import object_keys_from_array_values from "@ps/fn/io/obj/obj_keys_from_array"
 // import tlds_all from "@ps/nlp/data/domains/all"

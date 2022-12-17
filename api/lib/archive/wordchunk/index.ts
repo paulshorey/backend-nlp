@@ -1,6 +1,6 @@
 import chunk_word_forward from "./chunk_word_forward"
 import chunk_word_backward from "./chunk_word_backward"
-import str_row from "@ps/nlp/api/endpionts/data.words/promise/str_row"
+import str_row from "@ps/nlp/api/endpoints/data.words/promise/str_row"
 
 /**
  * Break string into words (check rows from DB for every character)

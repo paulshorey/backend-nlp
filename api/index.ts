@@ -1,4 +1,4 @@
-import dotenv from "dotenv"
+// import path from "path"
 import "./global"
 import * as fs from "fs"
 import * as http from "http"
@@ -8,14 +8,13 @@ import import_expressApp from "express/index"
 import cors from "cors"
 import { serverStartError } from "./lib/process"
 import * as RequestIp from "@supercharge/request-ip"
-import * as os from "os"
 import { endpointHandler } from "./lib/http"
 import api_endpoints from "./endpoints"
+import customEnv from "custom-env"
 
+customEnv.env("local")
+customEnv.env()
 const { getClientIp } = RequestIp
-const os_platform = os.platform()
-const host_is_dev = os_platform === "darwin"
-dotenv.config()
 const expressApp = import_expressApp()
 const PORT = "1080"
 const DEBUG1 = false
@@ -38,13 +37,17 @@ expressApp.use(cors())
 // detect real IP address of request
 expressApp.use(function (req, res, next) {
   req.client_ip = getClientIp(req)
-  req.host_is_dev = host_is_dev
+  req.host_is_dev = global["DEVELOPMENT"]
   next()
 })
 
 // Intercept input/output
 expressApp.use(bodyParser.urlencoded({ extended: false }))
 expressApp.use(bodyParser.json())
+
+// Error logs
+// expressApp.use(airbrakeExpress.makeMiddleware(global["airbrake"]))
+// expressApp.use(airbrakeExpress.makeErrorHandler(global["airbrake"]))
 
 // // Modify output
 // const responseInterceptor = function (req, res, next) {
@@ -94,7 +97,7 @@ httpServer.listen(PORT, () => {
   global.cconsole.log("HTTP Server running on port " + PORT)
 })
 // HTTPS
-if (!host_is_dev) {
+if (!global["DEVELOPMENT"]) {
   try {
     const ssl_key = fs.readFileSync(
       global.__root + `/_certs/api${process.env.PRODUCTION ? "" : "-staging"}.wordio.co.key`,

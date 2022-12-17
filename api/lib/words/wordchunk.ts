@@ -1,4 +1,4 @@
-import { data_word_get_parsed } from "@ps/nlp/api/endpionts/data.words/pgdb"
+import { data_word_get_parsed } from "@ps/nlp/api/endpoints/data.words/pgdb"
 
 /**
  * @param {array} word_arr

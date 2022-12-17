@@ -1,5 +1,5 @@
-import from_simple_mstring from "@ps/nlp/api/endpionts/domain_suggestions/suggestions/this.phrase_lists/phrase_list/markov_string_simple"
-// import self_before_after from "@ps/nlp/api/endpionts/domain_suggestions/suggestions/this.phrase_lists/phrase_list/self_before_after"
+import from_simple_mstring from "@ps/nlp/api/endpoints/domain_suggestions/suggestions/this.phrase_lists/phrase_list/markov_string_simple"
+// import self_before_after from "@ps/nlp/api/endpoints/domain_suggestions/suggestions/this.phrase_lists/phrase_list/self_before_after"
 
 /**
  * Make Phrase Suggestions Lists

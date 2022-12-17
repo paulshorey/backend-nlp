@@ -1,4 +1,4 @@
-import thesaurus from "./endpoints/thesaurus"
-import tokenization from "./endpoints/tokenization"
+import thesaurus from "./thesaurus"
+import tokenization from "./tokenization"
 
 export default [...thesaurus, ...tokenization]

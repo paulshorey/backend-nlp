@@ -1,7 +1,7 @@
 /*
  * Dependencies
  */
-import { data_domain_get, data_domain_get_parsed } from "@ps/nlp/api/endpionts/data.domains/pgdb";
+import { data_domain_get, data_domain_get_parsed } from "@ps/nlp/api/endpoints/data.domains/pgdb"
 /**
  * Get DB row
  * @param key {string} - domain extension
@@ -10,20 +10,19 @@ import { data_domain_get, data_domain_get_parsed } from "@ps/nlp/api/endpionts/d
  * @resolves row {object} - full DB row {key, rank, syns1, etc}
  */
 export default function (key, { parse = true }) {
-    return new Promise(async (resolve) => {
-        /*
-         * Get row
-         */
-        let row;
-        if (parse) {
-            row = await data_domain_get_parsed(key, "key,syns,syns1");
-        }
-        else {
-            row = await data_domain_get(key, "key,syns,syns1");
-        }
-        /*
-         * Done
-         */
-        resolve(row);
-    });
+  return new Promise(async (resolve) => {
+    /*
+     * Get row
+     */
+    let row
+    if (parse) {
+      row = await data_domain_get_parsed(key, "key,syns,syns1")
+    } else {
+      row = await data_domain_get(key, "key,syns,syns1")
+    }
+    /*
+     * Done
+     */
+    resolve(row)
+  })
 }

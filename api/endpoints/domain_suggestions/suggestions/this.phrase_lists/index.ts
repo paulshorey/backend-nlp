@@ -1,10 +1,10 @@
-import add_from_nlp from "@ps/nlp/api/endpionts/domain_suggestions/suggestions/this.phrase_lists/add_from_nlp"
-import add_original from "@ps/nlp/api/endpionts/domain_suggestions/suggestions/this.phrase_lists/add_original"
-import add_autocomplete from "@ps/nlp/api/endpionts/domain_suggestions/suggestions/this.phrase_lists/add_autocomplete"
+import add_from_nlp from "@ps/nlp/api/endpoints/domain_suggestions/suggestions/this.phrase_lists/add_from_nlp"
+import add_original from "@ps/nlp/api/endpoints/domain_suggestions/suggestions/this.phrase_lists/add_original"
+import add_autocomplete from "@ps/nlp/api/endpoints/domain_suggestions/suggestions/this.phrase_lists/add_autocomplete"
 import self_before_after from "./phrase_list/self_before_after"
 import fws from "@ps/nlp/data/words/fw/fw"
-import original_replace_original from "@ps/nlp/api/endpionts/domain_suggestions/suggestions/this.phrase_lists/from_originals/original_replace_one"
-import original_one_word from "@ps/nlp/api/endpionts/domain_suggestions/suggestions/this.phrase_lists/from_originals/original_one_word"
+import original_replace_original from "@ps/nlp/api/endpoints/domain_suggestions/suggestions/this.phrase_lists/from_originals/original_replace_one"
+import original_one_word from "@ps/nlp/api/endpoints/domain_suggestions/suggestions/this.phrase_lists/from_originals/original_one_word"
 
 export default function make_lists(this: any) {
   let { chunks_keys, chunks_dict } = this

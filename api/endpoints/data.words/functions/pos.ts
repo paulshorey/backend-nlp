@@ -1,8 +1,8 @@
-import pos_conjunctions from "@ps/nlp/api/endpionts/data.words/array/pos_conjunctions"
-import pos_determiners from "@ps/nlp/api/endpionts/data.words/array/pos_determiners"
-import pos_interjections from "@ps/nlp/api/endpionts/data.words/array/pos_interjections"
-import pos_prepositions from "@ps/nlp/api/endpionts/data.words/array/pos_prepositions"
-import pos_pronouns from "@ps/nlp/api/endpionts/data.words/array/pos_pronouns"
+import pos_conjunctions from "@ps/nlp/api/endpoints/data.words/array/pos_conjunctions"
+import pos_determiners from "@ps/nlp/api/endpoints/data.words/array/pos_determiners"
+import pos_interjections from "@ps/nlp/api/endpoints/data.words/array/pos_interjections"
+import pos_prepositions from "@ps/nlp/api/endpoints/data.words/array/pos_prepositions"
+import pos_pronouns from "@ps/nlp/api/endpoints/data.words/array/pos_pronouns"
 
 export const phrase_capitalize = function (phrase) {
   let array = []

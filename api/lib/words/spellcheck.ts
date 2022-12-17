@@ -1,4 +1,4 @@
-import bing_spellcheck from "@ps/nlp/api/endpionts/3rdparty/promise/bing_spellcheck"
+import bing_spellcheck from "@ps/nlp/api/endpoints/3rdparty/promise/bing_spellcheck"
 // import google_autocomplete from "@ps/nlp/api/3rdparty/promise/google_autocomplete"
 // import bing_autosuggest from "@ps/nlp/api/3rdparty/promise/bing_autosuggest"
 import stopwords_dict from "@ps/nlp/data/words/stopwords"

@@ -1,4 +1,4 @@
-// import check_ping from "@ps/nlp/api/endpionts/domain_availability/availability/promise_one/cli_host"
+// import check_ping from "@ps/nlp/api/endpoints/domain_availability/availability/promise_one/cli_host"
 // time fping -c 1 -q -r 0 -t 200 -i 1 ${domstr}
 // host -s -t ns -W 1 cyber.tech | head -n 1;
 // also try dig if host failed

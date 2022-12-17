@@ -1,4 +1,4 @@
-import cli_whois from "@ps/nlp/api/endpionts/domain_availability/availability/promise_one/cli_whois"
+import cli_whois from "@ps/nlp/api/endpoints/domain_availability/availability/promise_one/cli_whois"
 // import { sleep } from "@ps/fn/io/promises"
 // import import_localstorage from "node-localstorage"
 // let { LocalStorage } = import_localstorage
