@@ -51,7 +51,7 @@ let dnaOptions: any = {
   hosttype: global["hosttype"],
   app: "nlpbe-node-api",
   source: global["DEVELOPMENT"] ? "development" : "production",
-  level: "debug"
+  level: "trace"
 }
 let dnaConsole = logdna.createLogger("42ce61a790ba92d5c1661e4ad3affb83", dnaOptions)
 // LogDNA stops listening after a while, then starts again AFTER it receives a message.
@@ -60,7 +60,7 @@ let dnaConsole = logdna.createLogger("42ce61a790ba92d5c1661e4ad3affb83", dnaOpti
 let nlogged = 0
 setInterval(function () {
   nlogged++
-  dnaConsole.log(nlogged + "", { level: "debug" })
+  dnaConsole.log(nlogged + "")
 }, 60000)
 
 //
