@@ -4,7 +4,7 @@ export default [
     path: "/",
     response: () => {
       return {
-        test: "1",
+        test: "2",
         documentation: "https://documenter.getpostman.com/view/23360867/2s8YzXtewC",
         greetings: [
           "hi",
