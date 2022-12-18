@@ -14,20 +14,26 @@ ssh-add /root/.ssh/2022 # fixMe: using /root instead of ~ because it's run by /e
 # 
 # Reset codebase
 #
-echo "resetting to HEAD"
+echo "RESET root"
+git fetch --all
+git add .
+branch=$(git symbolic-ref --short HEAD);
+git reset --hard --no-recurse-submodules HEAD # clear local changes
+git reset --hard --no-recurse-submodules origin/$branch # reset to remote
+git pull
+cd $rootdir
+echo "RESET project"
 git fetch --all
 git add .
 branch=$(git symbolic-ref --short HEAD);
 git reset --hard HEAD # clear local changes
 git reset --hard origin/$branch # reset to remote
 git pull
-git submodule update
-# log
-ystatus
 
 #
-# Install all monorepo dependencies
+# Reset Install all monorepo dependencies
 #
+cd $monodir
 yarn
 cd $rootdir
 
