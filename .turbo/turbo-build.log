@@ -1,4 +1,0 @@
-$ tsc && echo 'Not necessary. Using ts-node instead, so production and development can run same code and configuration.'
-error TS18003: No inputs were found in config file '/Users/user/srv/harmony/backend/nlp/tsconfig.json'. Specified 'include' paths were '["api/**/*"]' and 'exclude' paths were '["node_modules","dist","umd","esm","out","test",".next",".backup","public","storybook-static","**/*.test.ts","**/*.test.js"]'.
-error Command failed with exit code 2.
-info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
