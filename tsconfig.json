@@ -1,6 +1,7 @@
 {
   "include": ["api/**/*"],
   "exclude": [
+    "docs",
     "node_modules",
     "dist",
     "umd",
@@ -12,7 +13,8 @@
     "public",
     "storybook-static",
     "**/*.test.ts",
-    "**/*.test.js"
+    "**/*.test.js",
+    "**/*.stories.tsx"
   ],
   "compilerOptions": {
     "lib": ["ESNext", "DOM"],
